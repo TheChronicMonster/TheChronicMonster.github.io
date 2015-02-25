@@ -263,7 +263,7 @@ var pizzaElementGenerator = function(i) {
   pizzaContainer.id = "pizza" + i;                // gives each pizza element a unique id
   pizzaImageContainer.classList.add("col-md-6");
 
-  pizzaImage.src = "images/pizza.png";
+  pizzaImage.src = "https://cloud.githubusercontent.com/assets/9493272/6381993/d9c99dd4-bd0a-11e4-8273-f1ff64335055.png";
   pizzaImage.classList.add("img-responsive");
   pizzaImageContainer.appendChild(pizzaImage);
   pizzaContainer.appendChild(pizzaImageContainer);
@@ -447,7 +447,7 @@ function createPizzas(){
 function createPizza(x, y) {
 	var elem = document.createElement('img');
     elem.className = 'mover';
-    elem.src = "images/pizza.png";
+    elem.src = "https://cloud.githubusercontent.com/assets/9493272/6381993/d9c99dd4-bd0a-11e4-8273-f1ff64335055.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     elem.basicLeft = x;
