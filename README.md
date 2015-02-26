@@ -2,15 +2,17 @@
 
 The Web Optimization project was much more intensive than I had expected. It has made me quesiton whether I am cut out for for front-end web development or not. Nevertheless, I press forward.
 
-This website package is a basic web page holding an introducary homepage and a handful of links to various projects. All images have been compressed, Google Analytics have been entered into the HTML, and fonts references have been labeled for optimal speed. 
+This website package is a basic web page holding an introductory homepage and a handful of links to various projects. All images have been compressed, Google Analytics has been entered into the HTML, and fonts have been reduced to a sans serif for optimal speed. 
 
-Pizza.html and main.js is where most of my time was spent. All CSS was inlined into Pizza.html and the bootstrap file was minified. A long form copy exists for your reading pleasure on this file and all other minified fiels.
+Index.html received a page speed score of 96/100 for mobile! The only thing I wasn't able to do was cache-control the css and js files. I was surprised how compressed images can be before losing their integrity. 
+
+Pizza.html and main.js is where most of my time was spent. All CSS was inlined into Pizza.html and the bootstrap file was minified. A long form copy exists for your reading pleasure on this file and all other minified files.
 
 Pizza's main.js creates an array of pizza ingredients and arrays of adjectives and nouns to create 46 random pizzas as well as two constant pizzas as defined in the html. 
 
 I compressed the sliding pizzas and reduced their movement to well below 60 fps. The page loads in under 100ms. However, I was not able make the pizzas resize in less than 5ms. Currently, they reload in 22ms. 
 
-document. was called several times throughout the main.js. This is very costly so variables were used in place everytime possible.
+"document." was called several times throughout the main.js. This is very costly so variables were used in place everytime possible.
 
 Working through this course has solidified the importance of research. Incountable pages of MDN and W3Schools were referenced throughout this code. One of the most revealing lessons was going through the code and looking at bits of code like the querySelector and createElement. This is a field where there's always something new to learn!'
 
