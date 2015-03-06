@@ -443,13 +443,11 @@ function createPizzas(){
   }
   updatePositions();
 }
-// Put pizzas on x,y coridinates and simplified code.
+// Put pizzas on x,y coridinates and simplified code. Uses resized image
 function createPizza(x, y) {
 	var elem = document.createElement('img');
     elem.className = 'mover';
-    elem.src = "https://cloud.githubusercontent.com/assets/9493272/6381993/d9c99dd4-bd0a-11e4-8273-f1ff64335055.png";
-    elem.style.height = "100px";
-    elem.style.width = "73.333px";
+    elem.src = "https://cloud.githubusercontent.com/assets/9493272/6528825/50b0c194-c3ea-11e4-913a-307ef60ce4f2.png";
     elem.basicLeft = x;
     elem.style.top = y + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
