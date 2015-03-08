@@ -15,31 +15,22 @@ cameron *at* udacity *dot* com
 // Here are arrays of all possible pizza ingredients.
 var pizzaIngredients = {};
 pizzaIngredients.meats = [
-  "Pepperoni","Sausage","Fennel Sausage","Spicy Sausage","Chicken",
-  "BBQ Chicken","Chorizo","Chicken Andouille","Salami","Tofu","Bacon",
-  "Canadian Bacon","Proscuitto","Italian Sausage","Ground Beef",
-  "Anchovies","Turkey","Ham","Venison","Lamb","Duck","Soylent Green",
-  "Carne Asada","Soppressata Picante","Coppa","Pancetta","Bresola",
-  "Lox","Guanciale","Chili","Beef Jerky","Pastrami","Kielbasa",
-  "Scallops","Filet Mignon"];
+  "Pepperoni","Sausage","Fennel Sausage","Spicy Sausage","Chicken","BBQ Chicken","Chorizo","Chicken Andouille","Salami",
+  "Tofu","Bacon","Canadian Bacon","Proscuitto","Italian Sausage","Ground Beef","Anchovies","Turkey","Ham","Venison",
+  "Lamb","Duck","Soylent Green","Carne Asada","Soppressata Picante","Coppa","Pancetta","Bresola",
+  "Lox","Guanciale","Chili","Beef Jerky","Pastrami","Kielbasa","Scallops","Filet Mignon"];
 pizzaIngredients.nonMeats = [
-  "White Onions","Red Onions","Sauteed Onions","Green Peppers",
-  "Red Peppers","Banana Peppers","Ghost Peppers","Habanero Peppers",
-  "Jalapeno Peppers","Stuffed Peppers","Spinach","Tomatoes",
-  "Pineapple","Pear Slices","Apple Slices","Mushrooms","Arugula",
-  "Basil","Fennel","Rosemary","Cilantro","Avocado","Guacamole",
-  "Salsa","Swiss Chard","Kale","Sun Dried Tomatoes","Walnuts",
-  "Artichoke","Asparagus","Caramelized Onions","Mango","Garlic",
-  "Olives","Cauliflower","Polenta","Fried Egg","Zucchini","Hummus"];
+  "White Onions","Red Onions","Sauteed Onions","Green Peppers","Red Peppers","Banana Peppers","Ghost Peppers",
+  "Habanero Peppers","Jalapeno Peppers","Stuffed Peppers","Spinach","Tomatoes","Pineapple","Pear Slices",
+  "Apple Slices","Mushrooms","Arugula","Basil","Fennel","Rosemary","Cilantro","Avocado","Guacamole",
+  "Salsa","Swiss Chard","Kale","Sun Dried Tomatoes","Walnuts","Artichoke","Asparagus","Caramelized Onions",
+  "Mango","Garlic","Olives","Cauliflower","Polenta","Fried Egg","Zucchini","Hummus"];
 pizzaIngredients.cheeses = [
-  "American Cheese","Swiss Cheese","Goat Cheese","Mozzarella Cheese",
-  "Parmesean Cheese","Velveeta Cheese","Gouda Cheese","Muenster Cheese",
-  "Applewood Cheese","Asiago Cheese","Bleu Cheese","Boursin Cheese",
-  "Brie Cheese","Cheddar Cheese","Chevre Cheese","Havarti Cheese",
-  "Jack Cheese","Pepper Jack Cheese","Gruyere Cheese","Limberger Cheese",
-  "Manchego Cheese","Marscapone Cheese","Pecorino Cheese","Provolone Cheese",
-  "Queso Cheese","Roquefort Cheese","Romano Cheese","Ricotta Cheese",
-  "Smoked Gouda"];
+  "American Cheese","Swiss Cheese","Goat Cheese","Mozzarella Cheese","Parmesean Cheese","Velveeta Cheese",
+  "Gouda Cheese","Muenster Cheese","Applewood Cheese","Asiago Cheese","Bleu Cheese","Boursin Cheese",
+  "Brie Cheese","Cheddar Cheese","Chevre Cheese","Havarti Cheese","Jack Cheese","Pepper Jack Cheese",
+  "Gruyere Cheese","Limberger Cheese","Manchego Cheese","Marscapone Cheese","Pecorino Cheese","Provolone Cheese",
+  "Queso Cheese","Roquefort Cheese","Romano Cheese","Ricotta Cheese","Smoked Gouda"];
 pizzaIngredients.sauces = [
   "Red Sauce","Marinara","BBQ Sauce","No Sauce","Hot Sauce"];
 pizzaIngredients.crusts = [
@@ -263,11 +254,10 @@ var pizzaElementGenerator = function(i) {
   pizzaContainer.id = "pizza" + i;                // gives each pizza element a unique id
   pizzaImageContainer.classList.add("col-md-6");
 
-  pizzaImage.src = "https://cloud.githubusercontent.com/assets/9493272/6381993/d9c99dd4-bd0a-11e4-8273-f1ff64335055.png";
+  pizzaImage.src = "https://cloud.githubusercontent.com/assets/9493272/6528599/a9010784-c3e8-11e4-9dd8-e826371e4b51.png";
   pizzaImage.classList.add("img-responsive");
   pizzaImageContainer.appendChild(pizzaImage);
   pizzaContainer.appendChild(pizzaImageContainer);
-
 
   pizzaDescriptionContainer.classList.add("col-md-6");
 
@@ -347,7 +337,6 @@ var resizePizzas = function(size) {
 		return dx;
 	}
 
-
 	// TODO: change to 3 sizes? no more xl?
 	// Changes the slider value to a percent width
 	function sizeSwitcher (size) {
@@ -394,8 +383,6 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 
 // The following code for sliding background pizzas was pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
-
-
 
 // Moves the sliding background pizzas based on scroll position
 function updatePositions() {
