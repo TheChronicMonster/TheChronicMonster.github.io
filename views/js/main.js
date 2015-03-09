@@ -314,6 +314,7 @@ var resizePizzas = function(size) {
 		var dx = determineDx(pizzaContainers[0], size);
 		console.log('dx : ' + dx);
 		// Loop through all pizza containers and change their size. 
+		// newwidth is expensive, set pizzaContainers to 0 and move out of loop.
 		var i = 0;
 		var len = pizzaContainers.length;
 		var newwidth = (pizzaContainers[0].offsetWidth + dx) + 'px';
@@ -392,9 +393,10 @@ function updatePositions() {
   var items = document.getElementsByClassName('mover');
   var i = 0;
   var len = items.length;
-  var scrollTopCalc = (document.body.scrollTop / 1250);
+  // document is expensive and constant, calculation can be made outside of loop.
+  var scrollTopCalc = (document.body.scrollTop / 1250); 
   for (; i < len; i++) {
-    // controls sin wave 
+    // controls sin wave
     var phase = Math.sin(scrollTopCalc + (i % 6));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
     //console.log(items[i].style.left);
