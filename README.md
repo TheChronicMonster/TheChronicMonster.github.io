@@ -10,7 +10,7 @@ Pizza.html and main.js is where most of my time was spent. All CSS was inlined i
 
 Pizza's main.js creates an array of pizza ingredients and arrays of adjectives and nouns to create 46 random pizzas as well as two constant pizzas as defined in the html. 
 
-I compressed the sliding pizzas and reduced their movement to well below 60 fps. The page loads in under 100ms. However, I was not able make the pizzas resize in less than 5ms. Currently, they reload in 22ms. 
+I compressed the sliding pizzas and reduced their movement to well below 60 fps. Console.log() and the timeline helped me see where inefficiencies were in the code. Load times dropped drastically by pulling constants out of the for loops in changePizzaSizes and updatePositions. It was almost magical to see the difference.
 
 "document." was called several times throughout the main.js. This is very costly so variables were used in place everytime possible.
 
