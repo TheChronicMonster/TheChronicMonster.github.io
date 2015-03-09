@@ -316,8 +316,8 @@ var resizePizzas = function(size) {
 		// Loop through all pizza containers and change their size. 
 		var i = 0;
 		var len = pizzaContainers.length;
+		var newwidth = (pizzaContainers[0].offsetWidth + dx) + 'px';
 		for (; i < len; i++) {
-		  var newwidth = (pizzaContainers[i].offsetWidth + dx) + 'px';
 		  pizzaContainers[i].setAttribute("style","width:"+newwidth);
 		  //pizzaContainers[i].style.width = newwidth;
 		}
@@ -392,9 +392,10 @@ function updatePositions() {
   var items = document.getElementsByClassName('mover');
   var i = 0;
   var len = items.length;
+  var scrollTopCalc = (document.body.scrollTop / 1250);
   for (; i < len; i++) {
     // controls sin wave 
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 6));
+    var phase = Math.sin(scrollTopCalc + (i % 6));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
     //console.log(items[i].style.left);
     }
