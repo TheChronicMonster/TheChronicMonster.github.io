@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Janesville Locations</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjJoFHB4-JW56gvlsygdFO50DQ7MXMtbE">
+    </script>
+
+  </head>
+  <body>
+    <form>
+      Search: <input type="text" name="search" value="i.e. Restaurants">
+    </form>
+    <button>Go!</button>
+<!--  	<div id="panel">
+		<button data-bind="click: clearMapPoints">Hide Markers</button>
+		<button data-bind="click: showMapPoints">Show All Markers</button>
+		<button data-bind="click: deleteMapPoints">Delete Markers</button>
+  	</div> -->
+    <div data-bind="listView: { data: mapPoints, template: template }"></div>
+
+	   <div id="map-canvas"></div>
+	
+	
+
+  	<div id="list view">
+  		<div class="heading">
+		<!-- 
+  			<input type="checkbox" data-bind="checked: selectAllMarkers" title="Select all/none"/> Places of Interest
+  		
+		</div>
+  		<div data-bind="foreach: marker">
+  			<label>
+  				<input type="checkbox" data-bind="checkedValue: $data, checked: $parent.selectedMarkers"/>
+  				<span data-bind="text: $data"></span>
+  			</label>
+  		</div>
+		-->
+
+	
+
+  <script src="js/lib/jquery-1.11.2.js"></script>
+	<script type="text/javascript" src="js/lib/knockout-3.2.0.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+  </body>
+</html>
