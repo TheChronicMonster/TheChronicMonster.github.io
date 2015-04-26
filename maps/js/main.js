@@ -1,26 +1,12 @@
-// mapPoint object to hold information about a map point.
-function mapPoint(name, type, lat, long) {
-    this.name = name;
-    this.lat = ko.observable(lat);
-    this.long = ko.observable(long);
 
-    var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(lat, long),
-        title: name,
-        map: map,
-        draggable: false
-    });
-	
-	function setMap(map){ 
-		marker.setMap( map );
-	};
-}
-
-var map = new google.maps.Map(document.getElementById('map-canvas'), {
+var map = new google.maps.Map(document.getElementById('map-canvas'), 
+{
     zoom: 13,
-    center: new google.maps.LatLng(42.692,-89.009)
+    center: new google.maps.LatLng(42.692,-89.009),
+	disableDefaultUI: true
 });
 
+var infowindow = new google.maps.InfoWindow({ });
 
 function myViewModel() {
 	this.mapPoints = ko.observableArray([
@@ -36,14 +22,10 @@ function myViewModel() {
         new mapPoint('Rotary Botanical Garden', 'Park', 42.672,-89.001),
         new mapPoint('Riverside Park', 'Park', 42.712,-89.041),
         ]);
-
-	this.template = listView.template('<div>#= name #</div>');
-
-ko.bindingHandlers.listView.options = {
-	navigatable: true,
-	selectable: true,
-};
 		
+	this.selectedMapPoint = ko.observable();
+
+
 	// Sets the map on all markers in the array
 	this.setMapOnMapPoints = function(map) {
 		for (var i=0; i < this.mapPoints().length; i++) {
@@ -67,6 +49,44 @@ ko.bindingHandlers.listView.options = {
 		this.clearMapPoints();
 		this.mapPoints().removeAll();
 	}
+	
+	
+	// mapPoint object to hold information about a map point.
+	function mapPoint(name, type, lat, long) {
+		this.name = name;
+		this.lat = ko.observable(lat);
+		this.long = ko.observable(long);
+		
+		var latLng = new google.maps.LatLng(lat, long);
+
+		var marker = new google.maps.Marker({
+			position: latLng,
+			title: name,
+			map: map,
+			draggable: false
+		});
+		
+		google.maps.event.addListener(marker, 'click', function() {
+			// Create the new info window and populate with information
+			infowindow.setContent(getInfoWindowContent());
+			infowindow.open(map,marker);
+			
+			// set the center of the map to the location of the marker clicked
+			map.setCenter(latLng);
+			
+			// Update the list view to have highlight
+			this.selectedMapPoint(marker);
+		});
+		
+		function setMap(map){ 
+			marker.setMap( map );
+		};
+		
+		function getInfoWindowContent(){
+			return "Name : " + name;
+		};
+	}
+	
 }
 
 ko.applyBindings(new myViewModel);
