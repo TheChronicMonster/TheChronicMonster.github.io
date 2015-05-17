@@ -9,10 +9,10 @@ function yelpAjax(searchNear, searchFor) {
 	 *	This info would never make it to prod - it's only used right now as Proof-of-concept
 	 */
 	var auth = {
-			    consumerKey : "igjXtMVKhuVNjjJEih0vCQ",
-			    consumerSecret : "ziP5zS_dWXrPi0EDrvleDXqsbcg",
-			    accessToken : "wJhBku-NNXgScAbds457yB4FuozLPWlK",
-			    accessTokenSecret : "wL5q4CmB_qEcaUirQw1Uk4wIToo",
+			    consumerKey : "3lDrXFNxTi5w2Y2xSnsD8g",
+			    consumerSecret : "iMpKCcWJqv-1C4z-osLXdS7l1pY",
+			    accessToken : "CT9Uq88ntGuyZu09Py1-eG1_RisKt-fY",
+			    accessTokenSecret : "A2uCApdNNjhjoiYbl2DTxA2bsjw",
 			    serviceProvider : {
 			        signatureMethod : "HMAC-SHA1"
 			    }
