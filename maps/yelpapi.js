@@ -77,23 +77,7 @@ function yJax(url, ydata){
 }
 
 
-    var YWSID = "[YOUR YWSID KEY]"; // common required parameter (api key)
 
-    
-    function constructYelpURL() {
-        var mapBounds = map.getBounds();
-        var URL = "http://api.yelp.com/" +
-            "business_review_search?"+
-            "callback=" + "handleResults" +
-            "&term=" + document.getElementById("term").value + 
-            "&num_biz_requested=10" +
-            "&tl_lat=" + mapBounds.getSouthWest().lat() +
-            "&tl_long=" + mapBounds.getSouthWest().lng() + 
-            "&br_lat=" + mapBounds.getNorthEast().lat() + 
-            "&br_long=" + mapBounds.getNorthEast().lng() +
-            "&ywsid=" + YWSID;
-        return encodeURI(URL);
-    }
 
 
 
