@@ -45,28 +45,29 @@ h6 {
 #search {
 	position: absolute; 
 	top: 35px; 
-	left: 5px; 
+	width: 225px;
+	left: 10px; 
 	z-index: 99;
 	margin: 5px;
 	padding: 5px;
 	border: 1px;
+	border-radius: 25px;
 }
 
-#list-view {
+.list-view {
 	position: absolute; 
-	height: 400px;
 	width: 233px;
+	border-radius: 25px;
 	top: 60px; 
 	left: 5px;
 	z-index: 99;
 	margin: 5px;
 	padding: 5px;
-	border: 1px solid #CCC;
 	overflow-y:hidden;
 	overflow-x:hidden;
 }
 
-#list-view.select{ width: 100%; height: 80em; }
+.list-view.select{ width: 100%; height: 80em; }
 
 .heading {
 	font-size: 16px;
@@ -91,50 +92,4 @@ form {
 	border: 10px;
 	padding: 5px;
 	z-index: 2;
-}
-
-/* Styles from real estate project */
-
-.bgimg {
-    position:fixed;
-    top: 0;
-    left: 0;
-    width:100%;
-    z-index:-1;
-    opacity:1;
-}
-
-.greeting {
-    color:black;
-    text-shadow: 1px 1px 3px rgba(255,255,255, .5);
-    text-align: center;
-}
-
-.wikipedia-container {
-    float:right;
-    width:33.33%;
-    padding:10px;
-    margin-right: 10px;
-    background-color: rgba(255,255,255,0.7);
-}
-
-.nytimes-container {
-    padding: 10px;
-    margin-right:300px;
-    background-color: rgba(255,255,255,0.7);
-    width: 33.33%;
-}
-
-.article-list {
-    margin: 0;
-    padding: 0;
-}
-
-.article {
-    list-style-type: none;
-    padding:10px;
-    border-top: 1px solid #CCC;
-}
-.article:first-child {
-    border-top:none;
 }
