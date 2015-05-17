@@ -4,28 +4,36 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<title>Janesville Locations</title>
-    <link rel="stylesheet" href="css/stylesheet.css">
-    <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjJoFHB4-JW56gvlsygdFO50DQ7MXMtbE">
-    </script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/stylesheet.css">
+	<script type="text/javascript"
+  		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjJoFHB4-JW56gvlsygdFO50DQ7MXMtbE">
+	</script>
 
   </head>
-  <body>
-    <form id="search">
-      Search: <input type="text" name="search" value="i.e. Restaurants">
-	  <button>Go!</button>
+    <body>
+    <form>
+	<input id="search" data-bind="value: filterText, valueUpdate: 'afterkeydown'" placeholder="Filter Locations" autocomplete="off" />
     </form>
-    
+	<div class="list-view">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<strong>Janesville Sites To See</strong>
+				</div>
+				<ul class="list-group">
+					<div data-bind="foreach: mapPoints">
+						<li class="list-group-item" 
+							data-bind="
+								text:name,
+								visible:show,
+								click: $parent.listClick.bind($data)">
+						</li>
+					</div>
+				</ul>
+		</div>
+	</div>
+
 	<div id="map-canvas"></div>
-	
-	<select id="list-view" multiple="multiple" 
-	data-bind="
-			options:mapPoints, 
-			optionsText:'name',
-			value:selectedMapPoint
-			"></select>
-	
-	
 	<script type="text/javascript" src="js/lib/jquery.knockout.min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
   </body>
