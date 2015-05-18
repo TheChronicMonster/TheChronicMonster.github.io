@@ -1,5 +1,21 @@
 # TheChronicMonster.github.io
 
+Project 5
+Project five can be experienced at http://thechronicmonster.github.io/maps/
+The source code is within the maps folder.
+
+Project 5 in Udacity's front end nanodegree's greatest lesson can be wrapped up in two words. Scope Matters.
+Which consequently, would make a great title to an article on the subject. My map of Janesville, WI highlights some local attractions for the city. Something for everyone is highlighted, local restaurants, bars and taverns, parks and places of entertainment. Use the filter bar to filter the list of predetermined locations, click on the list view to find the marker you'd like, or click randomly on markers to see information as provided by the foursquare API.
+
+Yes that's right, this map implements google maps api and foursquare's api. Which brings us to the second lesson learned in this project, AJAX and JSON requests. They can be difficult at first, but are a lot of fun to play with once you find your way into the response.
+
+This project was built using the Knockout JS framework. It's an MVVM (model view viewmodel) that helps separate concerns, specifically the view from the viewmodel. These two elements of the source never speak to each other, they communicate through bindings. This might sound odd at first, but the MVVM framework allows exponential scaleability, much like the system of wires built for landline telephones in the 20th century. jQuery is also used to help with the JSON request and infowindow population. Without jQuery DOM manipulation would be a bit more tedious and we'd have even more articles to read about why we should all stop using javaScript.
+
+I could not have completed this project without weeks of patient work and dozens of online resources. Resources include stackoverflow, the Udacity forums, online hangouts with coaches, online hangouts with fellow students, repositories of students also working through the forums, Udacity online classes, knockmeout.net, google developer resources, foursquare api developer resource pages, jQuery documentation and especially knockout documentation.
+
+I went through the knockout tutorials everyday for at least a week until data-binding and applyBindings was wrote into my brain. I'm very happy that all the pieces finally clicked together.
+
+Project 4
 The Web Optimization project was much more intensive than I had expected. It has made me quesiton whether I am cut out for for front-end web development or not. Nevertheless, I press forward.
 
 This website package is a basic web page holding an introductory homepage and a handful of links to various projects. All images have been compressed, Google Analytics has been entered into the HTML, and fonts have been reduced to a sans serif for optimal speed. 
