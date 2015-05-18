@@ -63,7 +63,7 @@ function mapPoint(name, type, lat, long, show, venueId) {
 	};
 	
 	var getInfoWindowContent= function(marker){
-		var $windowContent = name;
+		var $windowContent = $('#content');
 		// concatonate results and print them in this function
 
 
