@@ -1,14 +1,8 @@
-//TODO: Prettify with CSS
-
-//TODO: Implement a third party API that adds content to infoWindow
-
-//TODO: Implement graceful failures
-
 // If there is one thing this project has taught me it is that
 // Scope Matters
 
-var map = new google.maps.Map(document.getElementById('map-canvas'), 
-{
+// Initiate Google Maps
+var map = new google.maps.Map(document.getElementById('map-canvas'), {
     zoom: 13,
     center: new google.maps.LatLng(42.692,-89.009),
 	disableDefaultUI: true
@@ -19,6 +13,7 @@ if (typeof google != ('object')) {
 	$('#map-canvas').append("<h1>Unable to load the map. Please try again.</h1>");
 }
 
+// Enables info window with a content placeholder
 var infoWindow = new google.maps.InfoWindow({ content: "contentString" });
 
 
@@ -41,17 +36,21 @@ function mapPoint(name, type, lat, long, show, venueId) {
 		draggable: false
 	});
 
+	/* The magic happens right here. Sets the info window to hold JSON info
+	 * and implements bouncing animation when the marker is clicked
+	 */
 	self.openInfoWindow = function(){
 		// Create the new info window and populate with information
 		infoWindow.setContent("<div id='content'></div>");
 		infoWindow.open(map,self.marker);
 		self.marker.setAnimation(google.maps.Animation.BOUNCE);
 		setTimeout(function(){self.marker.setAnimation(null);}, 1400);
+		// Writes data into info window. Nothing happens without this line
 		getInfoWindowContent(self.marker);
 		// set the center of the map to the location of the marker clicked
 		map.setCenter(self.latLng);
 	};
-	
+	// Marker listens for click
 	google.maps.event.addListener(self.marker, 'click', self.openInfoWindow);
 	
 	self.updateShow = function(show){
@@ -64,16 +63,15 @@ function mapPoint(name, type, lat, long, show, venueId) {
 	};
 
 
-	
+	// Begin JSON request
 	function getInfoWindowContent(){
 		var $windowContent = $('#content');
-		// concatonate results and print them in this function
-
+		// Client Ids and secrets would not make it to production code
 		var foursquareUrl = 'https://api.foursquare.com/v2/venues/'+ venueId+
 		'?client_id=URGEGRHR4PYMZETAERB02IQQ2J0ALZ1ZAQL5XMOQOZSGFJEA'+
 		'&client_secret=LQTBAAROXZR2GWOU5SON5N5QC3ZJVBMM4IZ4YCOG1LTKQ3VZ'+
 		'&v=20130815';
-
+		// Gathers the JSON information desired into vars
 		$.getJSON(foursquareUrl, function(response) {
 			var venue = response.response.venue;
 		    var venueName = venue.name;
@@ -81,45 +79,26 @@ function mapPoint(name, type, lat, long, show, venueId) {
 		   	var phone = venue.contact.formattedPhone;
 		   	var website = venue.url;
 
-		   	if(venueName) {$windowContent.append('<p>'+venueName+'</p>');
+		   	if(venueName) {$windowContent.append('<p>' + venueName + '</p>');
 		   } else {
 		   	$windowContent('<p> Unable to find location name</p>');
 			}
-		   	if(address) {$windowContent.append('<p>'+address+'</p>');
+		   	if(address) {$windowContent.append('<p>' + address + '</p>');
 		   } else {
 		   		$windowContent.append('<p> address unlisted </p>');
 		   	}
-		   	if(phone) {$windowContent.append('<p>'+phone+'</p>');
+		   	if(phone) {$windowContent.append('<p>' + phone + '</p>');
 		   } else {
 		   		$windowContent.append('<p> Phone number unlisted </p>');
 		   	}
-		   	if(website) {$windowContent.append('<p><href='+website+'></p>');
+		   	if(website) {$windowContent.append('<p><a href=' + website + '></a></p>');
 		   } else {
 		   		$windowContent.append('<p> Website unlisted </p>');
 		   	}
 		}).error(function(e) {
+			// what did you do to upset Foursquare?? I didn't say anything.
 			$windowContent.text('Oops! I think foursquare is not talking at this time.');
 		});
-
-		// $.ajax({
-		//     url: foursquareUrl,
-		//     data: { },
-		//     cache: false,
-		//     type: "GET",
-		//     success: function(response) {
-		//     	var loc = this;
-		    	
-
-		//     	$windowContent = ('<li>' + venueName + '</li><li>' + address + '</li><li>' + phone + '</li><li><a href=' + website + '></a></li>');
-		//     	console.log($windowContent);
-
-		//     },
-		//     error: function(xhr) {
-		//    		return ("<h3>Unable to load content information at this time</h3>");
-		//     	// Fail gracefully if website is not there. 
-		//     },
-		// });
-		// return $windowContent;
 	}
 }	
 
@@ -127,7 +106,7 @@ function mapPoint(name, type, lat, long, show, venueId) {
 function myViewModel() {
 	'use strict';
 	var self = this;
-	
+	// array of locations
 	self.mapPoints = ko.observableArray([
         new mapPoint('Citrus Cafe', 'Restaurant', 42.680,-89.019, true, '500d87bae4b0bab9bd25c7a0'),
         new mapPoint('Cozy Inn Chinese Restaurant', 'Restaurant', 42.681,-89.026, true,'4c0ae428340720a1fc4e8793'),
@@ -141,7 +120,7 @@ function myViewModel() {
         new mapPoint('Rotary Botanical Garden', 'Park', 42.672,-89.001, true, '4bddd91bffdec92876ace6a1'),
         new mapPoint('Riverside Park', 'Park', 42.712,-89.041, true, '4cdb22c95aeda1cd8a1cbb11'),
         ]);
-		
+	
 	self.filterText = ko.observable('');
 		
 	// Selecting markers through the listview still in operation
@@ -165,3 +144,4 @@ function myViewModel() {
 }
 
 ko.applyBindings(new myViewModel());
+//All that only took one month :-O
