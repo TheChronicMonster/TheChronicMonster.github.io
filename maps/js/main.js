@@ -19,13 +19,12 @@ if (typeof google != ('object')) {
 	$('#map-canvas').append("<h1>Unable to load the map. Please try again.</h1>");
 }
 
-var contentString = "hello";
-
-var infoWindow = new google.maps.InfoWindow({ content: contentString });
+var infoWindow = new google.maps.InfoWindow({ content: "contentString" });
 
 
 // mapPoint object to hold information about a map point.
 function mapPoint(name, type, lat, long, show, venueId) {
+	'use strict';
 	var self = this;
 	self.name = name;
 	self.type = type;
@@ -44,9 +43,11 @@ function mapPoint(name, type, lat, long, show, venueId) {
 
 	self.openInfoWindow = function(){
 		// Create the new info window and populate with information
-		infoWindow.setContent(getInfoWindowContent());
+		infoWindow.setContent("<div id='content'></div>");
 		infoWindow.open(map,self.marker);
-		
+		self.marker.setAnimation(google.maps.Animation.BOUNCE);
+		setTimeout(function(){self.marker.setAnimation(null);}, 1400);
+		getInfoWindowContent(self.marker);
 		// set the center of the map to the location of the marker clicked
 		map.setCenter(self.latLng);
 	};
@@ -61,11 +62,12 @@ function mapPoint(name, type, lat, long, show, venueId) {
 			self.marker.setMap( null );
 		}
 	};
+
+
 	
-	var getInfoWindowContent= function(marker){
+	function getInfoWindowContent(){
 		var $windowContent = $('#content');
 		// concatonate results and print them in this function
-
 
 		var foursquareUrl = 'https://api.foursquare.com/v2/venues/'+ venueId+
 		'?client_id=URGEGRHR4PYMZETAERB02IQQ2J0ALZ1ZAQL5XMOQOZSGFJEA'+
@@ -75,7 +77,7 @@ function mapPoint(name, type, lat, long, show, venueId) {
 		$.getJSON(foursquareUrl, function(response) {
 			var venue = response.response.venue;
 		    var venueName = venue.name;
-		   	var address = venue.location.formattedAddress
+		   	var address = venue.location.formattedAddress;
 		   	var phone = venue.contact.formattedPhone;
 		   	var website = venue.url;
 
@@ -91,7 +93,7 @@ function mapPoint(name, type, lat, long, show, venueId) {
 		   } else {
 		   		$windowContent.append('<p> Phone number unlisted </p>');
 		   	}
-		   	if(website) {$windowContent.append('<p>'+website+'</p>');
+		   	if(website) {$windowContent.append('<p><href='+website+'></p>');
 		   } else {
 		   		$windowContent.append('<p> Website unlisted </p>');
 		   	}
@@ -119,9 +121,11 @@ function mapPoint(name, type, lat, long, show, venueId) {
 		// });
 		// return $windowContent;
 	}
-}		
+}	
+
 
 function myViewModel() {
+	'use strict';
 	var self = this;
 	
 	self.mapPoints = ko.observableArray([
