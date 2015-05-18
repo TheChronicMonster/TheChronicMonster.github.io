@@ -19,15 +19,18 @@ if (typeof google != ('object')) {
 	$('#map-canvas').append("<h1>Unable to load the map. Please try again.</h1>");
 }
 
-var infoWindow = new google.maps.InfoWindow({ content:"stuff" });
+var contentString = "hello";
+
+var infoWindow = new google.maps.InfoWindow({ content: contentString });
 
 
 // mapPoint object to hold information about a map point.
-function mapPoint(name, type, lat, long, show) {
+function mapPoint(name, type, lat, long, show, venueId) {
 	var self = this;
 	self.name = name;
 	self.type = type;
 	self.show = ko.observable(show);
+	self.venueId = venueId;
 	self.lat = ko.observable(lat);
 	self.long = ko.observable(long);
 	self.latLng = new google.maps.LatLng(lat, long);
@@ -60,10 +63,52 @@ function mapPoint(name, type, lat, long, show) {
 	};
 	
 	function getInfoWindowContent(){
-		var returnName = "Name : " + name;
+		// concatonate results and print them in this function
+		var result = "name: " + name;
 
-		return returnName + "<br> " + "stuff";
-		// add an ajax call from wikipedia add to content
+		var foursquareUrl = 'https://api.foursquare.com/v2/venues/'+ venueId+
+		'?client_id=URGEGRHR4PYMZETAERB02IQQ2J0ALZ1ZAQL5XMOQOZSGFJEA'+
+		'&client_secret=LQTBAAROXZR2GWOU5SON5N5QC3ZJVBMM4IZ4YCOG1LTKQ3VZ'+
+		'&v=20130815';
+
+		$.ajax({
+		    url: foursquareUrl,
+		    data: { },
+		    cache: false,
+		    type: "GET",
+		    success: function(response) {
+		    	var venue = response.response.venue;
+		    	var venueName = venue.name;
+		    	var address = venue.location.formattedAddress
+		    	var phone = venue.contact.formattedPhone;
+		    	var website = venue.url;
+
+		    	console.log(response);
+		    	console.log(venue.name);
+		    	console.log(venue.url);
+		    	console.log(venue.bestPhoto);
+		    	console.log(venue.likes.count);
+		    	console.log(venue.location.formattedAddress);
+		    	console.log(venue.contact.formattedPhone);
+		    	//callback(filtered_response);
+		    	result = venueName + " " + address + " " + phone + " " + website;
+		    	console.log(result);
+		    	//result += "<br> "  + response;
+		    	var information = [
+		    	venue,
+		    	venueName,
+		    	address,
+		    	phone,
+		    	website];
+		    	console.log(information);
+		    },
+		    error: function(xhr) {
+		   		return ("<h3>Unable to load content information at this time</h3>");
+		    	// Fail gracefully if website is not there. 
+		    },
+		});
+	
+		return result;
 	}
 }	
 
@@ -72,17 +117,17 @@ function myViewModel() {
 	var self = this;
 	
 	self.mapPoints = ko.observableArray([
-        new mapPoint('Citrus Cafe', 'Restaurant', 42.680,-89.019, true),
-        new mapPoint('Cozy Inn Chinese Restaurant', 'Restaurant', 42.681,-89.026, true),
-        new mapPoint('Hacienda Real Mexican Restaurant', 'Restaurant', 42.716,-88.995, true),
-        new mapPoint('ORiley and Conways Irish Pub', 'Bar', 42.681,-89.026, true),
-        new mapPoint('HHFFRRRGGH Inn', 'Bar', 42.669,-88.962, true),
-        new mapPoint('JPAC', 'Entertainment', 42.685,-89.013, true),
-        new mapPoint('Janesville Ice Arena', 'Entertainment', 42.676,-89.013, true),
-        new mapPoint('Wildwood Movies 16', 'Entertainment', 42.718,-88.979, true),
-        new mapPoint('Palmer Park', 'Park', 42.673,-88.998, true),
-        new mapPoint('Rotary Botanical Garden', 'Park', 42.672,-89.001, true),
-        new mapPoint('Riverside Park', 'Park', 42.712,-89.041, true),
+        new mapPoint('Citrus Cafe', 'Restaurant', 42.680,-89.019, true, '500d87bae4b0bab9bd25c7a0'),
+        new mapPoint('Cozy Inn Chinese Restaurant', 'Restaurant', 42.681,-89.026, true,'4c0ae428340720a1fc4e8793'),
+        new mapPoint('Hacienda Real Mexican Restaurant', 'Restaurant', 42.716,-88.995, true, '4bc8b21e0050b713d5f1ba3b'),
+        new mapPoint('ORiley and Conways Irish Pub', 'Bar', 42.681,-89.026, true , '4c3f18086faac9b663140f76'),
+        new mapPoint('HHFFRRRGGH Inn', 'Bar', 42.669,-88.962, true, '4db7047ca86e8d2707b77ddf'),
+        new mapPoint('JPAC', 'Entertainment', 42.685,-89.013, true, '4bdb74fc3904a59391924a9e'),
+        new mapPoint('Janesville Ice Arena', 'Entertainment', 42.676,-89.013, true, '4b92d1acf964a520b01e34e3'),
+        new mapPoint('Wildwood Movies 16', 'Entertainment', 42.718,-88.979, true, '4b93fffcf964a520326034e3'),
+        new mapPoint('Palmer Park', 'Park', 42.673,-88.998, true, '4cb9d1964495721e04964c7a'),
+        new mapPoint('Rotary Botanical Garden', 'Park', 42.672,-89.001, true, '4bddd91bffdec92876ace6a1'),
+        new mapPoint('Riverside Park', 'Park', 42.712,-89.041, true, '4cdb22c95aeda1cd8a1cbb11'),
         ]);
 		
 	self.filterText = ko.observable('');
