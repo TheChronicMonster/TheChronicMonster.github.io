@@ -62,56 +62,64 @@ function mapPoint(name, type, lat, long, show, venueId) {
 		}
 	};
 	
-	function getInfoWindowContent(){
+	var getInfoWindowContent= function(marker){
+		var $windowContent = name;
 		// concatonate results and print them in this function
-		var result = "name: " + name;
+
 
 		var foursquareUrl = 'https://api.foursquare.com/v2/venues/'+ venueId+
 		'?client_id=URGEGRHR4PYMZETAERB02IQQ2J0ALZ1ZAQL5XMOQOZSGFJEA'+
 		'&client_secret=LQTBAAROXZR2GWOU5SON5N5QC3ZJVBMM4IZ4YCOG1LTKQ3VZ'+
 		'&v=20130815';
 
-		$.ajax({
-		    url: foursquareUrl,
-		    data: { },
-		    cache: false,
-		    type: "GET",
-		    success: function(response) {
-		    	var venue = response.response.venue;
-		    	var venueName = venue.name;
-		    	var address = venue.location.formattedAddress
-		    	var phone = venue.contact.formattedPhone;
-		    	var website = venue.url;
+		$.getJSON(foursquareUrl, function(response) {
+			var venue = response.response.venue;
+		    var venueName = venue.name;
+		   	var address = venue.location.formattedAddress
+		   	var phone = venue.contact.formattedPhone;
+		   	var website = venue.url;
 
-		    	console.log(response);
-		    	console.log(venue.name);
-		    	console.log(venue.url);
-		    	console.log(venue.bestPhoto);
-		    	console.log(venue.likes.count);
-		    	console.log(venue.location.formattedAddress);
-		    	console.log(venue.contact.formattedPhone);
-		    	//callback(filtered_response);
-		    	result = venueName + " " + address + " " + phone + " " + website;
-		    	console.log(result);
-		    	//result += "<br> "  + response;
-		    	var information = [
-		    	venue,
-		    	venueName,
-		    	address,
-		    	phone,
-		    	website];
-		    	console.log(information);
-		    },
-		    error: function(xhr) {
-		   		return ("<h3>Unable to load content information at this time</h3>");
-		    	// Fail gracefully if website is not there. 
-		    },
+		   	if(venueName) {$windowContent.append('<p>'+venueName+'</p>');
+		   } else {
+		   	$windowContent('<p> Unable to find location name</p>');
+			}
+		   	if(address) {$windowContent.append('<p>'+address+'</p>');
+		   } else {
+		   		$windowContent.append('<p> address unlisted </p>');
+		   	}
+		   	if(phone) {$windowContent.append('<p>'+phone+'</p>');
+		   } else {
+		   		$windowContent.append('<p> Phone number unlisted </p>');
+		   	}
+		   	if(website) {$windowContent.append('<p>'+website+'</p>');
+		   } else {
+		   		$windowContent.append('<p> Website unlisted </p>');
+		   	}
+		}).error(function(e) {
+			$windowContent.text('Oops! I think foursquare is not talking at this time.');
 		});
-	
-		return result;
-	}
-}	
 
+		// $.ajax({
+		//     url: foursquareUrl,
+		//     data: { },
+		//     cache: false,
+		//     type: "GET",
+		//     success: function(response) {
+		//     	var loc = this;
+		    	
+
+		//     	$windowContent = ('<li>' + venueName + '</li><li>' + address + '</li><li>' + phone + '</li><li><a href=' + website + '></a></li>');
+		//     	console.log($windowContent);
+
+		//     },
+		//     error: function(xhr) {
+		//    		return ("<h3>Unable to load content information at this time</h3>");
+		//     	// Fail gracefully if website is not there. 
+		//     },
+		// });
+		// return $windowContent;
+	}
+}		
 
 function myViewModel() {
 	var self = this;
