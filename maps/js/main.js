@@ -2,7 +2,7 @@
 // Scope Matters
 
 // Initiate Google Maps
-var map = new google.maps.Map(document.getElementById('map-canvas'), {
+var map = new google.maps.Map(document.getElementByClassName('map-canvas'), {
     zoom: 13,
     center: new google.maps.LatLng(42.692,-89.009),
 	disableDefaultUI: true
@@ -41,7 +41,7 @@ function mapPoint(name, type, lat, long, show, venueId) {
 	 */
 	self.openInfoWindow = function(){
 		// Create the new info window and populate with information
-		infoWindow.setContent("<div id='content'></div>");
+		infoWindow.setContent("<div class='content'></div>");
 		infoWindow.open(map,self.marker);
 		self.marker.setAnimation(google.maps.Animation.BOUNCE);
 		setTimeout(function(){self.marker.setAnimation(null);}, 1400);
