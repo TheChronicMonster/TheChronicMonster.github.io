@@ -7,7 +7,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: sans-serif; font-size: 14px;
-	background-color: #CCC;
+	background-color: #ccc;
 }
 
 h3 {
@@ -25,12 +25,12 @@ h6 {
 	z-index: 6;
 }
 
-#map-canvas {
+.map-canvas {
 	height: 100%;
 	z-index: 1;
 }
 
-#panel {
+.panel {
 	position: absolute;
 	top: 5px;
 	left: 50%;
@@ -42,7 +42,7 @@ h6 {
 }
 
 
-#search {
+.search {
 	position: absolute; 
 	top: 35px; 
 	width: 225px;
@@ -80,7 +80,7 @@ form {
     display: inline-block;
 }
 
-#output {
+.output {
 	position: absolute;
 	top: 455px;	
 	left: 6px;
