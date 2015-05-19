@@ -95,6 +95,11 @@
     background: none;
 }
 
+.btn.btn-default {
+	position: absolute;
+	z-index: 9;
+}
+
 @media(min-width:768px) {
     #wrapper {
         padding-left: 250px;
