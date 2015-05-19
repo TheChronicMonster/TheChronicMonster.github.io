@@ -25,7 +25,7 @@ h6 {
 	z-index: 6;
 }
 
-.map-canvas {
+#map-canvas {
 	height: 100%;
 	z-index: 1;
 }
