@@ -57,6 +57,7 @@ h6 {
 .list-view {
 	position: absolute; 
 	width: 233px;
+	padding: 10px;
 	border-radius: 25px;
 	top: 60px; 
 	left: 5px;
