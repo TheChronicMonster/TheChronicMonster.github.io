@@ -2,7 +2,7 @@
 // Scope Matters
 
 // Initiate Google Maps
-var map = new google.maps.Map(document.getElementsByClassName('map-canvas'), {
+var map = new google.maps.Map(document.getElementById('map-canvas'), {
     zoom: 13,
     center: new google.maps.LatLng(42.692,-89.009),
 	disableDefaultUI: true
@@ -10,7 +10,7 @@ var map = new google.maps.Map(document.getElementsByClassName('map-canvas'), {
 
 // Google map fail statement
 if (typeof google != ('object')) {
-	$('.map-canvas').append("<h1>Unable to load the map. Please try again.</h1>");
+	$('#map-canvas').append("<h1>Unable to load the map. Please try again.</h1>");
 }
 
 // Enables info window with a content placeholder
