@@ -41,7 +41,7 @@ function mapPoint(name, type, lat, long, show, venueId) {
 	 */
 	self.openInfoWindow = function(){
 		// Create the new info window and populate with information
-		infoWindow.setContent("<div class='content'></div>");
+		infoWindow.setContent("<div id='content'></div>");
 		infoWindow.open(map,self.marker);
 		self.marker.setAnimation(google.maps.Animation.BOUNCE);
 		setTimeout(function(){self.marker.setAnimation(null);}, 1400);
@@ -144,4 +144,3 @@ function myViewModel() {
 }
 
 ko.applyBindings(new myViewModel());
-//All that only took one month :-O
