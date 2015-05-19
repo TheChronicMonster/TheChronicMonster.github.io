@@ -2,7 +2,7 @@
 // Scope Matters
 
 // Initiate Google Maps
-var map = new google.maps.Map(document.getElementByClassName('map-canvas'), {
+var map = new google.maps.Map(document.getElementsByClassName('map-canvas'), {
     zoom: 13,
     center: new google.maps.LatLng(42.692,-89.009),
 	disableDefaultUI: true
