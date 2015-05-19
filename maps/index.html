@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<title>Janesville Locations</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="simple-sidebar.css">
 	<link rel="stylesheet" href="css/stylesheet.css">
 	<script type="text/javascript"
   		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjJoFHB4-JW56gvlsygdFO50DQ7MXMtbE">
@@ -12,31 +13,46 @@
 
   </head>
     <body>
-    <form>
-	<input id="search" data-bind="value: filterText, valueUpdate: 'afterkeydown'" placeholder="Filter Locations" autocomplete="off" />
-    </form>
-	<div class="list-view">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<strong>Janesville Sites To See</strong>
-				</div>
-				<ul class="list-group">
-					<div data-bind="foreach: mapPoints">
-						<li class="list-group-item" 
-							data-bind="
+		<div id="wrapper" class>
+			<!-- Sidebar -->
+			<div id="sidebar-wrapper">
+				<form>
+					<input id="search" data-bind="value: filterText, valueUpdate: 'afterkeydown'" placeholder="Filter Locations" autocomplete="off" />
+				</form>
+			    
+			<div class="list-view">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<strong>Janesville Sites To See</strong>
+					</div>
+					<ul class="list-group" role="menu">
+						<div data-bind="foreach: mapPoints">
+							<li class="list-group-item" data-bind="
 								text:name,
 								visible:show,
 								click: $parent.listClick.bind($data)">
-						</li>
-					</div>
-				</ul>
+							</li>
+						</div>
+					</ul>
+				</div>
+			</div>
+			</div> <!-- End Sidebar -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+			</div>
 		</div>
-	</div>
-
-	<div id="map-canvas"></div>
+		</div> <!-- End Wrapper -->
+		<div id="map-canvas"></div>
 	<script src="js/lib/jquery.knockout.min.js"></script>
 	<script src="http://oauth.googlecode.com/svn/code/javascript/oauth.js"></script>
   	<script src="http://oauth.googlecode.com/svn/code/javascript/sha1.js"></script>
   	<script src="js/main.js"></script>
+  	<script>
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+		});
+  	</script>
   </body>
 </html>
