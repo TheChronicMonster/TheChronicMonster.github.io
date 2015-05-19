@@ -11,7 +11,7 @@
   </head>
     <body>
     <form>
-	<input id="search" data-bind="value: filterText, valueUpdate: 'afterkeydown'" placeholder="Filter Locations" autocomplete="off" />
+	<input class="search" data-bind="value: filterText, valueUpdate: 'afterkeydown'" placeholder="Filter Locations" autocomplete="off" />
     </form>
 	<div class="list-view">
 			<div class="panel panel-default">
@@ -31,7 +31,7 @@
 		</div>
 	</div>
 
-	<div id="map-canvas"></div>
+	<div class="map-canvas"></div>
 	<script src="js/lib/jquery.knockout.min.js"></script>
 	<script src="http://oauth.googlecode.com/svn/code/javascript/oauth.js"></script>
   	<script src="http://oauth.googlecode.com/svn/code/javascript/sha1.js"></script>
