@@ -1,0 +1,84 @@
+* {
+	font-family: 'Lucida Grande', sans-serif;
+	color: #666;
+}
+
+.container {
+	width: 100%;
+	margin-left: 27px;
+}
+
+.row {
+	width: 100%;
+}
+
+h1 {
+	font-size: 48px;
+}
+
+h2 {
+	color: #f07c17;
+	font-size: 28px;
+	margin-left: 0px;
+	margin-top: 0px;
+}
+
+.text {
+	line-height: 2em;
+	font-size: 15.5px;
+	color: #676858;
+	font-weight: 100;
+	border-top: 0px;
+	padding-top: 0px;
+}
+
+li {
+	line-height: 2em;
+    padding-top: 10px;
+}
+
+.img-responsive {
+	width: 375px;
+	max-width: 100%;
+	height: auto;
+}
+
+.col-md-5 {
+	width: 41.66%;
+	margin-top: 18px;
+	margin-left: 0px;
+	padding-left: 24px;
+}
+
+.col-md-7 {
+	width: 58.33%;
+	margin-top: 18px;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+.col-md-12 {
+	width: 100%;
+	margin-top: 25px;
+	padding-right: 66px;
+	text-align: center;
+}
+
+.rectangle {
+	width: 375px;
+	height: 223px;
+	margin-top: 27px;
+	margin-left: 0px;
+	padding-top: 35px;
+	padding-left: 32px;
+	border: 1px solid;
+	color: #ccc;
+}
+
+.modal-title {
+	color: #f07c17;
+}
+
+.modal-body {
+
+}
