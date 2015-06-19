@@ -16,10 +16,13 @@
 		<div id="wrapper" class>
 			<!-- Sidebar -->
 			<div id="sidebar-wrapper">
+				<!-- Filter Field -->
 				<form>
 					<input id="search" data-bind="value: filterText, valueUpdate: 'afterkeydown'" placeholder="Filter Locations" autocomplete="off" />
 				</form>
+				<!-- End Filter Field -->
 			    
+			<!-- List View -->
 			<div class="list-view">
 				<div class="panel panel-default">
 					<div class="panel-heading">
@@ -35,7 +38,7 @@
 						</div>
 					</ul>
 				</div>
-			</div>
+			</div> <!-- End List View -->
 			</div> <!-- End Sidebar -->
 		<div id="page-content-wrapper">
 			<div class="container-fluid">
@@ -48,6 +51,7 @@
 	<script src="http://oauth.googlecode.com/svn/code/javascript/oauth.js"></script>
   	<script src="http://oauth.googlecode.com/svn/code/javascript/sha1.js"></script>
   	<script src="js/main.js"></script>
+  	<!-- Controlls Toggle Menu Button -->
   	<script>
 		$("#menu-toggle").click(function(e) {
 			e.preventDefault();
