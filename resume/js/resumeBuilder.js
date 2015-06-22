@@ -46,19 +46,27 @@ var bio = {
 var work = {
 	"jobs": [
 		{
+			"employer": "Udacity",
+			"title": "Resume & Online Profile Reviewer",
+			"url" : "https://www.udacity.com",
+			"dates": "June 2015 - Current",
+			"description": "Research best practices and advice newly graduated students on crafting resumes that result in interviews. Five-star reviewer rating.",
+			"location" : "Remote"
+		},
+		{
 			"employer": "Urban Gaming Elite",
 			"title": "Executive Content Director",
 			"url" : "http://www.urbangamingelite.com",
-			"dates": "August 2014 - Present",
-			"description": "I strategize with UGE's founder, Alex Schwartz, manage our freelance writers and push live content to the website.",
+			"dates": "August 2014 - June 2015",
+			"description": "Strategized with UGE's founder, managed 18 freelance writers and pushed live content to the site.",
 			"location" : "Madison, WI"
 		},
 		{
 			"employer": "Self Employed",
 			"title": "Freelance Writer",
 			"url" : "http://www.thechronicmonster.com",
-			"dates": "February 2013 - Present",
-			"description": "I manage and motivate myself to produce quality content for the internet for my clients.",
+			"dates": "February 2013 - June 2015",
+			"description": "Produced more than 100 pieces of content for real estate and love advice blogs.",
 			"location" : "Janesville, WI"
 		},
 		{
@@ -66,7 +74,7 @@ var work = {
 			"title": "Independent Courier",
 			"url" : "http://www.theChronicMonster.com",
 			"dates": "January 2012 - December 2014",
-			"description": "I delivered consumer and agricultural goods as well as bank deposits on regularly scheduled routes in the Greater Chicago Region.",
+			"description": "Delivered consumer and agricultural goods as well as bank deposits on regularly scheduled routes in the Greater Chicago Region.",
 			"location" : "Chicago, IL"
 		}],
 		display: function() {
@@ -165,7 +173,7 @@ var projects = {
 		},
 		{
 			"title" : "Feed Reader Testing with JasmineJS",
-			"url" : "https://thechronicmonster.github.io/feedreader/",
+			"url" : "http://thechronicmonster.github.io/feedreader/",
 			"dates" : "April 2015",
 			"description" : "JasmineJS provides an excellent way to bug proof code with test driven development. I used the red-green testing method to ensure that every aspect of the web page worked as expected.",
 			"image" : "Images/jasmine.png"
