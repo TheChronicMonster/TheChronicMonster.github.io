@@ -173,7 +173,7 @@ var projects = {
 		},
 		{
 			"title" : "Feed Reader Testing with JasmineJS",
-			"url" : "http://thechronicmonster.github.io/feedreader/",
+			"url" : "https://thechronicmonster.github.io/feedreader/",
 			"dates" : "April 2015",
 			"description" : "JasmineJS provides an excellent way to bug proof code with test driven development. I used the red-green testing method to ensure that every aspect of the web page worked as expected.",
 			"image" : "Images/jasmine.png"
