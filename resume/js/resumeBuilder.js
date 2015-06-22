@@ -13,7 +13,7 @@ var bio = {
 		"blog" : "http://www.theChronicMonster.com",
 		"relocation" : "Willing to relocate"
 	},
-	"bioPic" : "images/bioImage.jpg",
+	"bioPic" : "Images/bioImage.jpg",
 	"skills" : ["Front-End Design & Development", "HTML & CSS", "JavaScript", "Writing", "Marketing", "Management", ],
 	display: function() {
 		var bi = bio.contacts;
@@ -144,38 +144,38 @@ var projects = {
 	"projects": [
 		{
 			"title" : "Portfolio Mockup",
-			"url" : "http://thechronicmonster.github.io/mug-mockup/",
+			"url" : "https://thechronicmonster.github.io/mug-mockup/",
 			"dates" : "November 2014",
 			"description" : "I created a web friendly mockup from a pdf file. Project utilizes HTML, Bootstrap and a JavaScript Modal.",
-			"image" : "images/mug.png"
+			"image" : "Images/mug.png"
 		},
 		{
 			"title" : "Frogger Game Clone",
-			"url" : "https://github.com/TheChronicMonster/Frogger-Clone",
+			"url" : "https://thechronicmonster.github.io/frogger-clone/",
 			"dates" : "February 2015",
 			"description" : "A point for nostalgia. I recreated the classic frogger game using boys and bugs.",
-			"image" : "images/frogger.png"
+			"image" : "Images/frogger.png"
 		},
 		{
 			"title" : "Website Optimization",
-			"url" : "http://thechronicmonster.github.io/views/pizza.html",
+			"url" : "https://thechronicmonster.github.io/views/pizza.html",
 			"dates" : "March 2015",
 			"description" : "I began with a very clunky webpage and optimizated it to render within milliseconds.",
-			"image" : "images/pagespeed.png"
+			"image" : "Images/pagespeed.png"
 		},
 		{
 			"title" : "Feed Reader Testing with JasmineJS",
-			"url" : "https://github.com/TheChronicMonster/feedReader",
+			"url" : "https://thechronicmonster.github.io/feedreader/",
 			"dates" : "April 2015",
 			"description" : "JasmineJS provides an excellent way to bug proof code with test driven development. I used the red-green testing method to ensure that every aspect of the web page worked as expected.",
-			"image" : "images/jasmine.png"
+			"image" : "Images/jasmine.png"
 		},
 		{
 			"title" : "Neighborhood Map",
-			"url" : "http://thechronicmonster.github.io/maps/",
+			"url" : "https://thechronicmonster.github.io/maps/",
 			"dates" : "May 2015",
 			"description" : "The Neighborhood Map incorporates the Google Maps and FourSquare APIs to create a map of interesting locations in my community.",
-			"image" : "images/google-maps-logo.png"
+			"image" : "Images/google-maps-logo.png"
 		}],
 		display: function() {
 			for (var e in projects.projects) {
