@@ -16,6 +16,7 @@ var bio = {
 	"bioPic" : "Images/bioImage.jpg",
 	"skills" : ["Front-End Design & Development", "HTML & CSS", "JavaScript", "Writing", "Marketing", "Management", ],
 	display: function() {
+		'use strict';
 		var bi = bio.contacts;
 		var formattedName = HTMLheaderName.replace("%data%", bio.name);
 		var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
