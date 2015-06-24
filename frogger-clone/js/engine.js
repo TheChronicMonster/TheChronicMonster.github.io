@@ -15,6 +15,7 @@
  */
 
 var Engine = (function(global) {
+    'use strict';
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
      * set the canvas elements height/width and add it to the DOM.
@@ -33,6 +34,7 @@ var Engine = (function(global) {
      * and handles properly calling the update and render methods.
      */
     function main() {
+        'use strict';
         /* Get our time delta information which is required if your game
          * requires smooth animation. Because everyone's computer processes
          * instructions at different speeds we need a constant value that
@@ -64,6 +66,7 @@ var Engine = (function(global) {
      * game loop.
      */
     function init() {
+        'use strict';
         reset();
         lastTime = Date.now();
         main();
@@ -79,6 +82,7 @@ var Engine = (function(global) {
      * on the entities themselves within your app.js file).
      */
     function update(dt) {
+        'use strict';
         updateEntities(dt);
         // checkCollisions();
     }
@@ -91,6 +95,7 @@ var Engine = (function(global) {
      * render methods.
      */
     function updateEntities(dt) {
+        'use strict';
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
@@ -104,6 +109,7 @@ var Engine = (function(global) {
      * they are just drawing the entire screen over and over.
      */
     function render() {
+        'use strict';
         /* This array holds the relative URL to the image used
          * for that particular row of the game level.
          */
@@ -145,6 +151,7 @@ var Engine = (function(global) {
      * on your enemy and player entities within app.js
      */
     function renderEntities() {
+        'use strict';
         /* Loop through all of the objects within the allEnemies array and call
          * the render function you have defined.
          */
@@ -160,6 +167,7 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
+        'use strict';
         // noop
     }
 
