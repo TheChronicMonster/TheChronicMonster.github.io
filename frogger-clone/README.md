@@ -1,4 +1,4 @@
-Arcade Classic Frogger Clone
+#Arcade Classic Frogger Clone
 
 This frogger clone uses object-oriented JavaScript and Canvas HTML to create an interactive game. The project used the dt parameter to keep movement the same on every computer. I also added the sprites, reset function and directions. All of my edits were made in app.js.
 
