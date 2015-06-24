@@ -29,6 +29,7 @@ var allFeeds = [
  * function when the API is loaded.
  */
 function init() {
+    'use strict';
     // Load the first feed we've defined (index of 0).
     loadFeed(0);
 }
@@ -42,6 +43,7 @@ function init() {
  * which will be called after everything has run successfully.
  */
 function loadFeed(id, cb) {
+    'use strict';
     var feedUrl = allFeeds[id].url,
         feedName = allFeeds[id].name,
         feed = new google.feeds.Feed(feedUrl);
@@ -92,6 +94,7 @@ google.setOnLoadCallback(init);
  * until the DOM is ready.
  */
 $(function() {
+    'use strict';
     var container = $('.feed'),
         feedList = $('.feed-list'),
         feedItemTemplate = Handlebars.compile($('.tpl-feed-list-item').html()),
