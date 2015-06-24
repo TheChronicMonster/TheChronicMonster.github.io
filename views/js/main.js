@@ -250,11 +250,11 @@ var makeRandomPizza = function() {
 var pizzaElementGenerator = function(i) {
   'use strict';
   var pizzaContainer,             // contains pizza title, image and list of ingredients
-      pizzaImageContainer,        // contains the pizza image
-      pizzaImage,                 // the pizza image itself
-      pizzaDescriptionContainer,  // contains the pizza title and list of ingredients
-      pizzaName,                  // the pizza name itself
-      ul;                         // the list of ingredients
+    pizzaImageContainer,        // contains the pizza image
+    pizzaImage,                 // the pizza image itself
+    pizzaDescriptionContainer,  // contains the pizza title and list of ingredients
+    pizzaName,                  // the pizza name itself
+    ul;                         // the list of ingredients
 
   pizzaContainer  = document.createElement("div");
   pizzaImageContainer = document.createElement("div");
@@ -307,20 +307,20 @@ var resizePizzas = function(size) {
 
   // Changes the value for the size of the pizza above the slider
   function changeSliderLabel(size) {
-	switch(size) {
-	  case "1":
-		document.querySelector("#pizzaSize").innerHTML = "Small";
-		return;
+    switch(size) {
+      case "1":
+        document.querySelector("#pizzaSize").innerHTML = "Small";
+        return;
 	  case "2":
-		document.querySelector("#pizzaSize").innerHTML = "Medium";
-		return;
+            document.querySelector("#pizzaSize").innerHTML = "Medium";
+	    return;
 	  case "3":
-		document.querySelector("#pizzaSize").innerHTML = "Large";
-		return;
+	    document.querySelector("#pizzaSize").innerHTML = "Large";
+	    return;
 	  default:
-		console.log("bug in changeSliderLabel");
-	}
-}
+	    console.log("bug in changeSliderLabel");
+    }
+  }
 
 // Iterates through pizza elements on the page and changes their widths
 function changePizzaSizes(size) {
@@ -328,7 +328,7 @@ function changePizzaSizes(size) {
 	var dx = determineDx(pizzaContainers[0], size);
 	console.log('dx : ' + dx);
 	// Loop through all pizza containers and change their size. 
-	// newwidth is expensive, set pizzaContainers to 0 and move out of loop.
+	// newwidth is expensive, set pizzaContainers to 0 and moved out of loop.
 	var i = 0;
 	var len = pizzaContainers.length;
 	var newwidth = (pizzaContainers[0].offsetWidth + dx) + 'px';
@@ -346,7 +346,6 @@ function determineDx (elem, size) {
 	//console.log('windowwidth : ' + windowwidth);
 	var oldsize = oldwidth / windowwidth;
 	//console.log('oldsize : ' + oldsize);
-	
 	var newsize = sizeSwitcher(size);
 	var dx = (newsize - oldsize) * windowwidth;
 	return dx;
@@ -444,7 +443,7 @@ function createPizzas(){
   var columnSpace = windowWidth/cols;
   var rowSpace = windowHeight/rows;
   
-  for ( var row = 0; row < rows; row++){
+  for (var row = 0; row < rows; row++){
     for (var col = 0; col < cols; col++) {
       var x = col * columnSpace;
       var y = row * rowSpace;
